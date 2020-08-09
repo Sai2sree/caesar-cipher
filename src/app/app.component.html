@@ -1,6 +1,6 @@
 <h1>Caesar Cipher</h1>
 
-<form>
+<form #cipherForm="ngForm" (ngSubmit)="onSubmit()">
   <fieldset class="form-group">
     <label for="phrase">Phrase</label>
     <input
@@ -8,6 +8,10 @@
       class="form-control"
       id="phrase"
       aria-describedby="phraseHelp"
+      name="phrase"
+      #phrase="ngModel"
+      [(ngModel)]="cipherModel.phrase"
+      required
     />
     <small id="phraseHelp" class="form-text text-muted"
       >Please insert the phrase you want to cipher</small
@@ -15,7 +19,15 @@
   </fieldset>
   <fieldset class="form-group">
     <label for="offset">Offset</label>
-    <input type="number" class="form-control" id="offset" />
+    <input
+      type="number"
+      class="form-control"
+      id="offset"
+      name="offset"
+      #offset="ngModel"
+      [(ngModel)]="cipherModel.phrase"
+      required
+    />
   </fieldset>
   <button type="submit" class="btn btn-primary">Cipher it!</button>
 </form>

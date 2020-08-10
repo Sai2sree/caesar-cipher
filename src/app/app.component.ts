@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Cipher } from "./cipher";
 import { CipheringService } from "./ciphering.service";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-root",
@@ -9,14 +10,17 @@ import { CipheringService } from "./ciphering.service";
 })
 export class AppComponent {
   title = "caesar-cipher";
-  phrase: string;
+  phrase = "";
   offset: number;
+  cipheredPhrase = "";
+
   constructor(private cipheringService: CipheringService) {}
   cipherModel = new Cipher(this.phrase, this.offset);
   onSubmit() {
-    console.log("form submitted");
     this.cipheringService.cipher(this.cipherModel).subscribe(
-      (data) => console.log(data),
+      (data) => {
+        [this.cipheredPhrase] = Object.values(data);
+      },
       (error) => console.log(error)
     );
   }

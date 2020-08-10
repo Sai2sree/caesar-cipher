@@ -13,6 +13,7 @@ export class AppComponent {
   phrase = "";
   offset: number;
   cipheredPhrase = "";
+  errorMessage: string;
 
   constructor(private cipheringService: CipheringService) {}
   cipherModel = new Cipher(this.phrase, this.offset);
@@ -21,7 +22,10 @@ export class AppComponent {
       (data) => {
         [this.cipheredPhrase] = Object.values(data);
       },
-      (error) => console.log(error)
+      (error) => {
+        console.log(`Error: ${error}`);
+        this.errorMessage = "Oops, something went wrong!";
+      }
     );
   }
 }

@@ -34,4 +34,7 @@
 
 <section>
   <p class="ciphered-phrase">{{ cipheredPhrase }}</p>
+  <p *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </p>
 </section>

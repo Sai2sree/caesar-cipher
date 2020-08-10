@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { AngularUniversalModule } from "@nestjs/ng-universal";
 import { join } from "path";
 import { CipherController } from "./src/cipher/cipher.controller";
+import { CipherService } from "./src/cipher/cipher.service";
 
 @Module({
   imports: [
@@ -12,5 +13,6 @@ import { CipherController } from "./src/cipher/cipher.controller";
     }),
   ],
   controllers: [CipherController],
+  providers: [CipherService],
 })
 export class ApplicationModule {}

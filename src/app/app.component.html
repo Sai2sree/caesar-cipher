@@ -1,40 +1,55 @@
-<h1>Caesar Cipher</h1>
+<div class="cc-main">
+  <h1 class="cc-title">{{ title | titlecase }}</h1>
 
-<form #cipherForm="ngForm" (ngSubmit)="onSubmit()">
-  <fieldset class="form-group">
-    <label for="phrase">Phrase</label>
-    <input
-      type="text"
-      class="form-control"
-      id="phrase"
-      aria-describedby="phraseHelp"
-      name="phrase"
-      #phrase="ngModel"
-      [(ngModel)]="cipherModel.phrase"
-      required
-    />
-    <small id="phraseHelp" class="form-text text-muted"
-      >Please insert the phrase you want to cipher</small
+  <form class="cc-cipher-form" #cipherForm="ngForm" (ngSubmit)="onSubmit()">
+    <fieldset class="form-group">
+      <label for="phrase">Phrase</label>
+      <input
+        type="text"
+        class="form-control"
+        id="phrase"
+        aria-describedby="phraseHelp"
+        name="phrase"
+        #phrase="ngModel"
+        [(ngModel)]="cipherModel.phrase"
+        placeholder="I Love JavaScript!"
+        required
+      />
+      <small id="phraseHelp" class="form-text text-muted"
+        >Please insert the phrase you want to cipher</small
+      >
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="offset">Offset</label>
+      <input
+        type="number"
+        class="form-control"
+        id="offset"
+        name="offset"
+        #offset="ngModel"
+        [(ngModel)]="cipherModel.offset"
+        placeholder="100"
+        required
+      />
+    </fieldset>
+    <button
+      [disabled]="cipherForm.form.invalid"
+      type="submit"
+      class="btn btn-primary"
     >
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="offset">Offset</label>
-    <input
-      type="number"
-      class="form-control"
-      id="offset"
-      name="offset"
-      #offset="ngModel"
-      [(ngModel)]="cipherModel.offset"
-      required
-    />
-  </fieldset>
-  <button type="submit" class="btn btn-primary">Cipher it!</button>
-</form>
+      Cipher it!
+    </button>
+  </form>
 
-<section>
-  <p class="ciphered-phrase">{{ cipheredPhrase }}</p>
-  <p *ngIf="errorMessage" class="error">
-    {{ errorMessage }}
-  </p>
-</section>
+  <section>
+    <p class="cc-ciphered-phrase">
+      {{ cipheredPhrase }}
+      <span *ngIf="!cipheredPhrase" class="cc-ciphered-phrase__placeholder"
+        >E hkra FwrwOynelp!</span
+      >
+    </p>
+    <p *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </p>
+  </section>
+</div>

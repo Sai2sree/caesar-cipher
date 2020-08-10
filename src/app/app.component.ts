@@ -9,7 +9,7 @@ import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
   styleUrls: ["./app.component.less"],
 })
 export class AppComponent {
-  title = "caesar-cipher";
+  title = "caesar cipher";
   phrase = "";
   offset: number;
   cipheredPhrase = "";

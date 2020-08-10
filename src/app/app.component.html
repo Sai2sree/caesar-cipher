@@ -5,9 +5,11 @@
     <fieldset class="form-group">
       <label for="phrase">Phrase</label>
       <input
+        [ngClass]="{
+          'cc-invalid': phrase.invalid && phrase.touched,
+          'form-control': true
+        }"
         type="text"
-        class="form-control"
-        id="phrase"
         aria-describedby="phraseHelp"
         name="phrase"
         #phrase="ngModel"
@@ -15,22 +17,33 @@
         placeholder="I Love JavaScript!"
         required
       />
-      <small id="phraseHelp" class="form-text text-muted"
-        >Please insert the phrase you want to cipher</small
+      <small
+        id="phraseHelp"
+        [class.cc-hidden]="phrase.valid || phrase.untouched"
+        >Enter the phrase to cipher</small
       >
     </fieldset>
     <fieldset class="form-group">
       <label for="offset">Offset</label>
       <input
+        [ngClass]="{
+          'cc-invalid': offset.invalid && offset.touched,
+          'form-control cc-cipher-form__offset': true
+        }"
         type="number"
-        class="form-control"
         id="offset"
         name="offset"
         #offset="ngModel"
         [(ngModel)]="cipherModel.offset"
+        min="0"
         placeholder="100"
         required
       />
+      <small
+        id="phraseHelp"
+        [class.cc-hidden]="offset.valid || offset.untouched"
+        >Indicate what number of spots to offset your phrase</small
+      >
     </fieldset>
     <button
       [disabled]="cipherForm.form.invalid"

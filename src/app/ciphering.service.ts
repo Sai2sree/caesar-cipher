@@ -6,7 +6,7 @@ import { Cipher } from "./cipher";
   providedIn: "root",
 })
 export class CipheringService {
-  endPoint = "";
+  endPoint = "http://localhost:4200/api/cipher";
   constructor(private http: HttpClient) {}
   cipher(cipher: Cipher) {
     console.log("phrase posted");

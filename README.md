@@ -12,7 +12,7 @@ This full stack project is built with `Angular 8` in the frontend and `Nest.js` 
 
 ### Client
 
-- The `src` folder of the root directory has all files of the client.
+- The `client` folder of the root directory has all files of the client.
 
 ## Instructions to run the project
 

@@ -6,7 +6,11 @@ import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    FormsModule,
+    HttpClientModule,
+  ],
 
   providers: [],
   bootstrap: [AppComponent],

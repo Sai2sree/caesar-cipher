@@ -5,7 +5,7 @@ import { CipherService } from "./cipher.service";
 export class CipherController {
   constructor(private readonly cipherService: CipherService) {}
   @Post()
-  addCipher(@Body("phrase") phrase: string, @Body("offset") offset: number) {
+  cipher(@Body("phrase") phrase: string, @Body("offset") offset: number) {
     const res = this.cipherService.cipher(phrase, offset);
     return { ciphered: res };
   }

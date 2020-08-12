@@ -4,6 +4,8 @@ Caesar's cipher takes a phrase and substitutes each character by shifting it up 
 
 This full stack project is built with `Angular 8` in the frontend and `Nest.js` in the backend.
 
+![Casesir's cipher app image](./website.png)
+
 ## Directory Structure
 
 ### Server

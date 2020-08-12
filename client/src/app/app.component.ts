@@ -41,4 +41,8 @@ export class AppComponent {
       }
     );
   }
+  clearQueries() {
+    this.previousQueries = "";
+    this.storage.clear();
+  }
 }

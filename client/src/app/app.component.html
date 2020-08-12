@@ -68,7 +68,15 @@
   </section>
 
   <section class="cc-queries">
-    <h2 class="cc-h2">Previous Queries</h2>
+    <h2 class="cc-h2">Previous queries</h2>
     <ul [innerHtml]="previousQueries" class="cc-queries__list"></ul>
+    <button
+      [disabled]="!previousQueries.length"
+      type="button"
+      class="btn btn-danger"
+      (click)="clearQueries()"
+    >
+      Clear
+    </button>
   </section>
 </div>
